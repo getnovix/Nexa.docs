@@ -1,289 +1,589 @@
 Nexa — Built by Ibrahim, an 18-Year-Old Sudanese Developer
 
-«Project: Nexa
-Developer: Ibrahim
-Background: Self-taught developer from Sudan
-Started learning programming: Around age 12
-Project status: Under active development
-Last updated: October 13, 2026»
+«A long-term vision for digital finance and e-commerce in Sudan.
+
+Built by a self-taught developer who began learning programming at approximately 12 years old.
+
+Parent brand: Novix
+Project: Nexa
+Project status: Ongoing development
+Documentation date: October 13, 2026»
 
 ---
 
-1. What Is Nexa?
+1. Introduction
 
-Nexa is a software project being developed with the long-term goal of building financial and digital commerce services for users in Sudan and, potentially, other markets in the region.
+Nexa is a software project focused on the intersection of digital finance, peer-to-peer transactions, and e-commerce.
 
-The broader vision includes a digital wallet, USDT-related functionality, a marketplace, seller accounts, transaction management, and an escrow-style system for eligible transactions.
+Its long-term goal is to develop an integrated platform through which users can manage digital balances, exchange value, purchase products, operate online stores, and access related digital services.
 
-The project is part of a larger vision under Novix, a brand intended to support multiple software products over time.
+The project is being developed with the Sudanese market in mind, where practical digital commerce solutions could help address challenges involving payments, access to online services, and interactions between buyers and sellers.
 
-However, there is an important distinction between a product vision and a working product.
+The ambition is substantial: to build a major e-commerce ecosystem in Sudan and, over time, explore opportunities in other markets in the region.
 
-Not every feature described in this document is implemented, tested, or ready for public use. The implementation status of individual components must be established by examining the actual source code, tests, integrations, and deployment environment.
+However, Nexa is an ongoing engineering project. Its long-term vision must not be confused with the features currently implemented, independently verified, or ready for production.
 
-This README is intended to document the project honestly as it develops, rather than present future plans as completed achievements.
+This README documents the product's intended direction, its technical principles, and the reasoning behind its design. Specific implementation claims should be evaluated against the relevant source code, tests, integrations, and deployment evidence.
 
 2. About the Developer
 
-Ibrahim is an 18-year-old self-taught developer from Sudan. He began learning programming at approximately 12 years old.
+Ibrahim is an 18-year-old self-taught developer from Sudan who began learning programming at approximately 12 years old.
 
-His learning journey has not followed a conventional academic or professional software engineering path. Financial limitations and personal responsibilities have affected his education and the time he can dedicate to programming.
+His journey has taken place alongside financial limitations, work responsibilities, and the practical difficulties of learning software engineering without following a conventional academic path.
 
-He continues learning while working toward building software products of his own.
+He is building Nexa as an opportunity to apply what he learns to a substantial software system rather than limiting his work to isolated exercises.
 
-Nexa is an important part of that journey. It represents an attempt to turn programming knowledge into a structured software project involving backend development, databases, authentication, financial workflows, and user-facing services.
+His interests include Python development, backend engineering, databases, API design, financial workflows, application architecture, and the challenges of building reliable digital services.
 
-The project's value should ultimately be evaluated through its implementation, documentation, reliability, and development history—not through the developer's age or personal circumstances.
+Nexa is not presented as proof that its developer has mastered every aspect of software engineering. It is a long-term project through which he is developing his skills while attempting to solve practical problems.
 
-Being young or self-taught does not automatically make a project impressive or reliable. Equally, those circumstances do not make a developer's work invalid. The code and evidence should speak for themselves.
+The objective is to turn learning into working software, improve that software over time, and document the process honestly.
 
-3. Technical Stack and Learning
+3. The Problem Nexa Wants to Address
 
-The project involves learning and applying several technologies, including:
+Digital commerce depends on more than the existence of an online storefront.
 
-- Python: Backend programming and application logic.
-- FastAPI: Building HTTP APIs and organizing backend routes.
-- PostgreSQL: Relational data storage and database-backed application features.
-- SQL: Creating, querying, and updating structured data.
-- JWT: A token format that can be used in authentication systems.
-- Bash: Working with command-line environments and development or server tasks.
-- Git and GitHub: Source control and project history, where configured and used.
-- Frontend development: Building user interfaces and connecting them to backend APIs.
+A buyer and a seller may need a way to discover each other, agree on a price, arrange payment, confirm fulfillment, and resolve a disagreement if something goes wrong.
 
-The presence of a technology in this list describes the project's technical direction or the developer's work with that technology. It does not, by itself, prove that every component is fully integrated or production-ready.
+In addition, users may encounter separate systems for payments, product listings, digital services, and account management.
 
-For example, using FastAPI does not automatically make an API secure. Using PostgreSQL does not automatically make financial transactions correct. Using JWT does not guarantee that authentication and authorization are implemented properly.
+Nexa explores whether some of these activities can be brought together in a coherent platform.
 
-Each of these areas requires appropriate implementation and testing.
+The underlying questions include:
 
-4. What the Backend Is Supposed to Do
+- How can buyers and sellers interact through a structured digital marketplace?
+- How can users access practical payment and transaction workflows?
+- How can a marketplace handle orders and disputes without relying entirely on informal communication?
+- How can a seller manage products, availability, and orders?
+- How can digital products be delivered after a successful purchase?
+- How can transaction records and account balances remain consistent?
+- How can the platform communicate clearly with users when something fails?
 
-A financial application needs more than screens and buttons.
+These are product and engineering problems, not problems that can be solved merely by creating an attractive interface.
 
-Its backend must define how users are identified, how requests are validated, how data is stored, and how operations are permitted or rejected.
+The aim is to develop software that addresses them through defined workflows, appropriate safeguards, and continuous improvement.
 
-For Nexa, the relevant areas include:
+4. Nexa and Novix
 
-Authentication and user accounts
+Novix is the broader brand and long-term product vision.
 
-The application needs a reliable way to register users, authenticate them, and determine which account is making a request.
+Nexa is one product within that ecosystem.
 
-If JWT-based authentication is used, the implementation must also handle token validation, expiration, signing keys, and authorization checks.
+The broader Novix vision has included additional products and services such as:
 
-A token should not be treated as proof that a request is permitted to perform every operation.
+- Novix AI.
+- Novix Chat.
+- Novix Trade.
+- Novix Cloud.
+- Nexa Developer.
 
-Database operations
+These names describe the wider product direction. They should not automatically be interpreted as evidence that every proposed product has been launched or is commercially available.
 
-PostgreSQL can store structured information such as user records, account balances, transactions, and marketplace data.
+Nexa itself is intended to bring together financial and commerce-related capabilities that would otherwise be distributed across separate services.
 
-The database schema and application logic must work together to preserve relationships and enforce the required constraints.
+The distinction is straightforward:
 
-Database usage alone is not evidence that all financial invariants are enforced.
+Novix represents the broader ecosystem. Nexa is the product being developed around digital finance and commerce.
 
-Transactions and balances
+5. Nexa's Product Architecture
 
-A wallet must prevent invalid balance changes and handle concurrent operations correctly.
+The long-term Nexa vision can be understood as a set of related components.
 
-For example, if an account has 100 units and attempts to transfer 80 units twice at nearly the same time, the system must not allow both operations to spend the same funds.
+5.1 Digital wallet
 
-Depending on the design, appropriate transaction boundaries, database constraints, concurrency controls, and idempotency mechanisms may be needed.
+The wallet is intended to provide users with account and balance functionality.
 
-The correctness of these controls must be demonstrated by inspecting the implementation and testing relevant failure scenarios.
+Depending on the implemented version, this may include internal balances, transaction history, deposits, withdrawals, and transfers.
 
-API organization
+A wallet interface must be supported by backend logic that validates requests and protects the integrity of account records.
 
-FastAPI supports separating application functionality into routers and modules. This can make a growing application easier to understand and maintain.
+A balance displayed on the screen is not sufficient evidence that the underlying financial workflow is correct. The database operations, transaction rules, and relevant failure cases must also be examined.
 
-However, importing a router into the main application only establishes that the application is configured to include it. It does not independently prove that every endpoint in that router works correctly.
+5.2 USDT and blockchain integration
 
-The same standard applies to every component of Nexa: implementation claims should match the available evidence.
+Nexa's broader technical direction includes USDT-related functionality and blockchain networks such as TRON and BNB Smart Chain. Polygon has also been considered in the development roadmap.
 
-5. Wallet, USDT, and Financial Features
+Blockchain integration introduces requirements that differ from ordinary database-backed transfers.
 
-The long-term Nexa vision includes digital wallet functionality and support for USDT-related services.
+These include transaction confirmation, network-specific addresses, transaction identifiers, deposit monitoring, withdrawal processing, network fees, reconciliation, and the handling of failed or delayed transactions.
 
-Blockchain-related plans have included networks such as TRON and BNB Smart Chain. The exact networks and features available at any particular time must be verified against the current implementation.
+Support for one network does not imply support for every network.
 
-Several distinct capabilities should not be confused:
+Similarly, storing an internal transaction record does not establish that a blockchain transfer has been broadcast, confirmed, or settled.
 
-- An internal account balance is not the same as a blockchain wallet.
-- Recording a transaction in a database is not the same as settling a blockchain transaction.
-- Displaying a deposit address is not the same as securely processing deposits.
-- Supporting a token on one network does not establish support for that token on another network.
-- A planned integration with a payment provider is not an operational integration.
+The supported networks and operational status of each blockchain feature must be verified against the current implementation.
 
-Before any wallet feature can be considered ready for real financial use, its transaction lifecycle, reconciliation, failure handling, security controls, and operational requirements need to be evaluated.
+5.3 Internal balances and transaction records
 
-This documentation does not claim that Nexa has completed those requirements merely because they are part of the product vision.
+An application may maintain internal account balances for transactions that take place within its own system.
 
-6. Marketplace and Escrow Vision
+Those balances must be handled consistently.
 
-Another part of Nexa's intended functionality is a marketplace where users can list products and conduct transactions.
+A sound design should define how balances change, how transaction records are created, how failed operations are reversed, and how duplicate requests are prevented from causing duplicate financial effects.
 
-The broader design includes seller accounts, product information, order management, and a mechanism intended to hold funds until the relevant transaction conditions have been satisfied.
+For financial operations, the implementation must also account for concurrent requests and other failure conditions.
 
-This is commonly described as an escrow-style workflow.
+PostgreSQL transactions, appropriate constraints, concurrency controls, and idempotency mechanisms may form part of that design.
 
-A trustworthy implementation requires more than a field that marks an order as pending. It must define who controls the funds, which events permit their release or return, how duplicate requests are handled, and how disputes are resolved.
+The precise implementation should be assessed from the actual code and tests.
 
-The actual status of each marketplace and escrow component should be established from the current source code and tests.
+5.4 Transaction history and notifications
 
-Until those controls have been implemented and verified, escrow should be described as a design goal or work in progress rather than a proven financial protection mechanism.
+Users need to understand what happened to their transactions.
 
-7. Researching Banking Websites and Security
+Transaction history can help communicate the amount, direction, status, and time of an operation.
 
-During the learning process, I have been interested in how financial services and banking websites present their products, organize their user experiences, and handle common account-related workflows.
+Notifications can communicate relevant events, such as a transaction changing status or an order requiring attention.
 
-There is an important distinction between researching a publicly accessible website and conducting a security assessment.
+These features should reflect the actual backend state rather than rely exclusively on frontend assumptions.
 
-Visiting or examining a banking website does not, by itself, demonstrate that its security has been tested. It also does not establish that vulnerabilities have been found, exploited, or responsibly disclosed.
+Where real-time updates are implemented, the system should also account for reconnection, authentication, and consistency between the latest server state and the displayed information.
 
-I do not claim to have discovered banking vulnerabilities, bypassed banking security, or conducted authorized penetration testing unless there is specific evidence supporting such a claim.
+6. Peer-to-Peer Trading: Why P2P Matters
 
-Any future security testing should be limited to systems for which the necessary authorization has been obtained.
+Peer-to-peer trading, commonly called P2P, is an important part of Nexa's broader vision.
 
-For Nexa itself, security should be treated as an engineering responsibility requiring appropriate testing, access controls, secret management, database protection, and review of financial workflows.
+P2P allows users to interact with other users to exchange value according to defined platform rules.
 
-Security claims should be based on verifiable work, not on an association with banking websites or on the complexity of the technologies used.
+Depending on the supported markets and services, the model may involve buyers and sellers agreeing on an exchange, such as exchanging a digital asset for an accepted local payment method.
 
-8. AI Assistance, Open-Source Software, and Original Work
+The platform's role is to provide the infrastructure through which eligible participants can discover offers, communicate, follow transaction rules, and access available dispute-handling processes.
 
-Modern software development involves many resources: official documentation, tutorials, community discussions, open-source libraries, code examples, debugging tools, and AI-assisted development tools.
+The exact currencies, payment methods, eligibility requirements, and supported transaction types depend on the operational model and applicable legal requirements.
 
-I do not consider using these resources inherently dishonest. Learning from them is a normal part of software development.
+Why build P2P into Nexa?
 
-At the same time, the origin of code matters, and claims about authorship should be accurate.
+A P2P system can address several practical needs.
 
-The following distinctions are important:
+Price discovery: Users can compare available offers instead of relying on a single displayed exchange price.
 
-Learning from documentation means using technical references to understand how a technology works.
+Participant choice: Buyers and sellers can evaluate the offers available to them.
 
-Using open-source dependencies means building on existing software according to its applicable license and requirements.
+Structured transactions: Orders can follow a defined sequence rather than depend entirely on informal messages.
 
-Adapting an example means modifying or integrating code that originated elsewhere. When attribution or license compliance is required, it should be provided.
+Transaction records: The platform can record the stages of an order and the actions taken by the participants.
 
-Using AI assistance may involve asking for explanations, debugging help, implementation suggestions, or code review. Such assistance does not, on its own, establish that the resulting code is original, correct, secure, or entirely written by the developer.
+Dispute handling: A defined process can provide a way to report problems and review available transaction evidence.
 
-Building a project involves making design decisions, understanding how components fit together, integrating them, testing their behavior, identifying failures, and maintaining the resulting system.
+Marketplace integration: P2P can complement other platform services where the business model and legal requirements permit it.
 
-These activities can overlap. Their exact contribution depends on the work performed.
+These benefits depend on implementation quality. A P2P interface alone does not establish that a transaction is safe or that either participant will fulfill an agreement.
 
-I want Nexa to be judged through its actual source code and development evidence rather than assumptions based solely on its appearance, the technologies it uses, or the fact that AI tools are available.
+How a P2P transaction may work
 
-I also do not claim that every line of code was written without external help unless that claim can be supported.
+A proposed P2P workflow could follow these stages:
 
-Where third-party code, libraries, or substantial adapted examples are used, their origin and licensing requirements should be handled appropriately.
+1. A seller publishes an offer with its price, limits, and permitted payment methods.
+2. A buyer selects an offer and creates an order.
+3. The system validates the order against the offer's rules and availability.
+4. Where an authorized escrow mechanism is available, the relevant digital assets may be reserved or held under predefined conditions.
+5. The buyer and seller follow the agreed payment process.
+6. The system receives and evaluates the required confirmation or evidence.
+7. The transaction is completed according to the applicable rules, or it enters a dispute or cancellation workflow.
+8. The transaction outcome is recorded for future reference.
 
-The purpose of this section is not to insist that the project must be considered original. It is to make the standard of evaluation clear: inspect the implementation, its dependencies, and its history.
+Not every P2P model requires the same sequence. The final workflow must reflect the actual custody arrangement, payment methods, applicable law, and implemented controls.
 
-9. A Living Project, Not a Finished Product
+A critical design question is whether Nexa merely coordinates transactions or also controls assets during part of the transaction. That distinction affects both the architecture and the platform's legal obligations.
 
-Nexa is being developed over time.
+P2P is not a guarantee of safety
 
-Its implementation, architecture, documentation, and feature set may change as the developer learns more and encounters technical limitations.
+A marketplace can reduce ambiguity by defining transaction rules, preserving records, and providing structured dispute handling.
 
-A feature that is incomplete today may be implemented later. A design that appears reasonable today may need to be revised after testing. A component that works in a development environment may still require substantial work before it can be used reliably in production.
+It cannot eliminate every form of fraud, payment reversal, identity misuse, or participant misconduct.
 
-For that reason, the project's status should be evaluated at a particular point in time.
+The platform must define its responsibilities and communicate its limitations clearly.
 
-Three-month review
+7. Why Nexa Is Designed as an Intermediary Platform
 
-A review approximately three months after this document's publication should examine the changes made during that period.
+A central product-design question is the role Nexa should play in transactions between users.
+
+The intended model is to provide a digital platform that connects participants and coordinates supported workflows, rather than simply presenting itself as the direct buyer or seller of every item exchanged.
+
+For example, a marketplace may connect an independent seller with a buyer, provide order-management tools, record the transaction, and offer a defined process for handling disputes.
+
+A P2P service may similarly provide an environment in which eligible users discover offers and follow structured transaction procedures.
+
+This model is intended to make interactions more organized and traceable.
+
+It also helps clarify which responsibilities belong to the buyer, which belong to the seller, and which belong to the platform.
+
+However, being an intermediary does not automatically remove legal or regulatory obligations.
+
+Depending on the jurisdiction, business model, assets involved, and degree of control over funds, a platform may still be subject to requirements concerning payments, custody, money transmission, consumer protection, identity verification, financial crime prevention, data protection, or other regulated activities.
+
+The relevant requirements must be assessed before launching affected services.
+
+The architecture should therefore be designed around the actual business model and the obligations that apply to it—not around an assumption that calling a service an intermediary creates a legal exemption.
+
+The intended objective is to build a useful platform with clearly defined responsibilities, appropriate authorization, and transparent operating rules.
+
+8. Escrow and Transaction Protection
+
+The Nexa vision includes an escrow-style mechanism for eligible marketplace or P2P transactions.
+
+In a typical escrow workflow, the relevant funds or assets are held or restricted under predefined conditions while the parties complete their obligations.
+
+For example, a buyer may place an order for a product. Instead of immediately making the proceeds available to the seller, the system may reserve the relevant amount until the required fulfillment condition is satisfied.
+
+The intended purpose is to reduce certain risks associated with transactions between parties who do not necessarily know or trust each other.
+
+A proper implementation must define:
+
+- Which assets are held and by whom.
+- Whether the platform has custody or uses an authorized third-party arrangement.
+- When a transaction can be funded.
+- Which conditions permit release.
+- How cancellation and refunds work.
+- What happens when a participant stops responding.
+- How disputes are initiated and reviewed.
+- How duplicate requests and conflicting state changes are prevented.
+- How all changes are recorded and reconciled.
+
+Escrow is not simply a database field or an order status.
+
+If the underlying assets are not actually held or restricted according to the stated rules, the system must not imply that they are protected by escrow.
+
+The mechanism must also comply with the legal requirements applicable to the actual custody and transaction model.
+
+9. Marketplace and Seller Stores
+
+Nexa is intended to include a marketplace where users can discover products and interact with sellers.
+
+The broader product design includes individual seller storefronts and product-management functionality.
+
+Depending on the implemented version, seller tools may include:
+
+- Store profiles and descriptions.
+- Product names, images, and descriptions.
+- Product pricing and available quantities.
+- Inventory management.
+- Order tracking.
+- Delivery options.
+- Seller information and relevant verification status.
+- Transaction and fulfillment history.
+
+A marketplace requires more than a product catalog.
+
+The system must define how inventory is reserved, how orders change state, how duplicate orders are handled, and how cancellations or refunds affect both the order and its associated financial records.
+
+It must also communicate the respective responsibilities of buyers, sellers, and the platform.
+
+The long-term objective is to make it easier for sellers to participate in digital commerce without requiring each seller to build an independent online store and transaction system from scratch.
+
+The current availability of individual store features should be established from the implementation.
+
+10. Orders, Delivery, and Disputes
+
+The marketplace vision includes structured order management.
+
+An order may pass through stages such as creation, payment processing, fulfillment, delivery confirmation, completion, cancellation, or dispute review.
+
+The exact states and permitted transitions must be defined in the backend.
+
+For physical products, fulfillment may involve delivery arrangements and confirmation that the relevant product has been received.
+
+For digital products, fulfillment may involve authorizing access to a download or delivering a digital item after a successful payment.
+
+These workflows have different failure conditions and should not automatically share identical business rules.
+
+Dispute handling
+
+A dispute mechanism is intended to provide a structured process for situations in which a buyer and seller disagree about a transaction.
+
+Depending on the final design, the process may involve:
+
+1. Opening a dispute.
+2. Recording the reason and relevant evidence.
+3. Temporarily restricting certain transaction actions where legally and technically appropriate.
+4. Reviewing the information available.
+5. Applying the outcome permitted by the platform's rules.
+6. Recording the decision and the resulting transaction state.
+
+A dispute interface does not by itself establish fair or reliable dispute resolution. The platform needs defined procedures, appropriate permissions, evidence handling, and a process for reviewing decisions.
+
+11. Digital Products and Services
+
+The broader Nexa marketplace vision includes digital products, potentially including downloadable books and other digital goods.
+
+Digital commerce introduces different requirements from the sale of physical products.
+
+The platform may need to manage product availability, purchase authorization, download permissions, and the relationship between a successful transaction and access to the purchased item.
+
+A download should not be authorized merely because a client claims to have paid. The server must validate the relevant transaction state and enforce access rules.
+
+The product vision has also included keeping some digital book prices accessible, with a proposed price ceiling of approximately US$0.50 for the relevant category.
+
+That figure is a product-design proposal, not a claim that every digital book currently follows that pricing rule.
+
+The actual pricing policy and availability of digital products must be verified against the current implementation and commercial terms.
+
+12. Currency Conversion and Pricing
+
+Nexa's broader design includes exchange-rate functionality for displaying or calculating prices across supported currencies.
+
+For example, a marketplace may need to convert a product's reference price into a locally displayed price.
+
+A robust implementation must define:
+
+- The source of the exchange rate.
+- Who is permitted to change it.
+- When a rate becomes effective.
+- How prices are rounded.
+- Whether a displayed price is indicative or binding.
+- How existing orders are treated when rates change.
+- How fees and margins are disclosed.
+- How calculations are reproduced for auditing.
+
+If administrators can control an exchange-rate parameter, changes should be authorized and recorded appropriately.
+
+A displayed conversion is not necessarily a completed currency exchange. Actual exchange services may involve additional liquidity, settlement, operational, and regulatory requirements.
+
+13. Deposits, Withdrawals, and External Providers
+
+Nexa's broader financial-service vision includes possible integrations with payment providers and blockchain-related services.
+
+An external provider may supply some of the infrastructure needed to accept payments, process withdrawals, or support other financial operations.
+
+The exact responsibilities depend on the provider's API, contractual arrangement, permissions, and supported markets.
+
+A provider integration is not complete merely because the application can send an HTTP request.
+
+The implementation must address authentication, request validation, error handling, transaction status, duplicate callbacks, reconciliation, and the possibility that a request times out even though the provider has processed it.
+
+Real-money services may also require provider approval, commercial agreements, licensing arrangements, or other authorization.
+
+The current status of each integration must be verified independently.
+
+14. Virtual Cards and Additional Financial Services
+
+The longer-term product vision has included exploring virtual-card functionality through an appropriate external issuer or financial-services partner.
+
+Such a feature would depend on the availability of a suitable provider, supported countries, identity and eligibility requirements, commercial terms, and applicable regulation.
+
+Nexa should not be described as issuing its own Visa cards unless the actual operating arrangement supports that statement.
+
+If card functionality is offered through a partner, the relationship and respective responsibilities should be described accurately.
+
+The same principle applies to other financial services: the interface, provider integration, and legal authority to offer a service are separate requirements.
+
+15. Customer Support and AI-Assisted Features
+
+Nexa's product vision includes customer-support functionality.
+
+This may involve a support conversation interface, structured support requests, user messages, and an administrative process for handling unresolved issues.
+
+AI-assisted customer support has also been considered as a way to help users understand features, navigate common workflows, and receive explanations.
+
+Such a system should communicate its limitations and avoid claiming that it can independently authorize financial transactions, reverse payments, or make binding dispute decisions unless those actions are explicitly supported and appropriately controlled.
+
+AI should complement the platform's defined workflows rather than replace authorization checks or reliable transaction processing.
+
+The existence and scope of any operational AI support feature must be verified against the current implementation.
+
+16. Accounts, Devices, and Active Sessions
+
+The broader application design includes account-management and session-management considerations.
+
+A user may need to review active sessions or devices and, where supported, revoke access to a session that is no longer trusted.
+
+These capabilities can help users understand where their account is active and manage access.
+
+However, a session-management interface must be connected to actual server-side session or token controls.
+
+Displaying a device list is not enough if the corresponding sessions cannot be reliably invalidated.
+
+The implementation should define how authentication state is tracked, how revocation works, and how sensitive account changes are protected.
+
+17. Administration and Operational Controls
+
+A platform supporting multiple users, stores, and transaction types requires operational tools.
+
+The Nexa vision includes an administrative interface for reviewing relevant users, transactions, marketplace activity, support requests, and disputes.
+
+Depending on the implemented version, administrative capabilities may also include reviewing deposits or withdrawals, managing product availability, and changing permitted platform settings.
+
+Administrative access should be protected through appropriate authentication, authorization, and audit logging.
+
+Sensitive actions should have defined permissions, and changes affecting financial records should be traceable.
+
+An administrative interface should not be treated as proof that operational controls are complete. The underlying permissions, transaction rules, and audit mechanisms must be evaluated separately.
+
+18. Nexa Developer and the Broader Novix Ecosystem
+
+The broader Novix vision has included developer-oriented services under the Nexa Developer concept.
+
+The proposed direction includes tools that could help developers deploy applications and work with services such as databases, hosting, and SSL configuration.
+
+This is a separate product direction from the core Nexa wallet and marketplace.
+
+Building a developer platform would introduce additional engineering responsibilities, including resource isolation, access control, deployment reliability, usage limits, monitoring, and security.
+
+It should therefore be treated as a separate workstream rather than assumed to be part of the current operational Nexa application.
+
+19. Technical Stack
+
+Technologies associated with the project's development include:
+
+- Python.
+- FastAPI.
+- PostgreSQL.
+- SQL.
+- Bash.
+- JWT-based authentication where implemented.
+- Frontend technologies used by the current application.
+- External APIs and blockchain infrastructure where integrated.
+
+The exact stack can change as the project evolves.
+
+Technology selection is only one part of engineering quality.
+
+For example, FastAPI does not automatically provide secure authorization. PostgreSQL does not automatically prevent every business-logic error. JWT does not automatically guarantee safe session management.
+
+The quality of the resulting system depends on how the components are implemented, integrated, tested, and maintained.
+
+20. Code Authorship and AI-Assisted Reasoning
+
+Ibrahim states that he writes 100% of Nexa's application code himself.
+
+He does not use AI as a code generator for Nexa, and he does not describe the project as a collection of code copied from AI responses or assembled from open-source repositories.
+
+His use of AI is primarily analytical.
+
+He may share his own project files and ask an AI model to reason through hypothetical situations, such as:
+
+- What might happen if two requests update the same balance concurrently?
+- What happens if a transaction fails halfway through a workflow?
+- How might one component affect another?
+- What could happen if an external service responds slowly or becomes unavailable?
+- Which failure cases might be overlooked in a particular design?
+- Why would a specific result occur under a given set of assumptions?
+
+The model provides possible outcomes and explanations. Ibrahim then uses that analysis to inform his own reasoning and development work.
+
+The motivation is to explore more scenarios than he could comfortably enumerate mentally on his own, especially in a system involving multiple interacting components.
+
+This is a form of analytical assistance, not a claim that AI can replace testing or prove that a design is correct.
+
+AI-generated analysis can be incomplete or wrong. Its suggestions must be evaluated rather than accepted automatically.
+
+Ibrahim's stated distinction is that he writes the code himself while using AI to help examine possible behaviors and consequences.
+
+The project should therefore be evaluated through its source code, architecture, tests, and development evidence, rather than assuming that AI use necessarily means AI-generated code.
+
+This statement describes the developer's account of his own workflow. It is not an independent authorship audit.
+
+21. Open-Source Dependencies and Technical References
+
+Software development frequently relies on established libraries, protocols, and technical documentation.
+
+Using a dependency is different from claiming authorship of that dependency.
+
+Nexa's dependencies should be identifiable through its dependency declarations and relevant licensing information.
+
+Where external code is incorporated or adapted, applicable license and attribution requirements should be respected.
+
+The developer's position is that he writes the project's application code himself and uses AI for analytical reasoning rather than copying generated implementations.
+
+That claim should be understood alongside the project's actual dependencies and available development history.
+
+No project should need to hide its dependencies or exaggerate its originality to demonstrate that meaningful engineering work has taken place.
+
+22. Security and Reliability
+
+Security is particularly important when software manages accounts, balances, payments, or transactions.
+
+Nexa's intended engineering responsibilities include appropriate controls for authentication, authorization, input validation, database consistency, secret management, and error handling.
+
+Depending on the supported features, additional controls may be needed for blockchain transactions, payment-provider callbacks, session revocation, administrative operations, and dispute workflows.
+
+Security should be assessed through the actual implementation and suitable testing.
+
+A successful demonstration does not prove that a system is secure against every attack. Likewise, the use of a particular framework does not establish that its configuration is secure.
+
+Any security assessment should be conducted within an authorized scope.
+
+Claims about security audits, penetration testing, certifications, or regulatory approval should only be made when supported by appropriate evidence.
+
+23. Project Status and Honest Reporting
+
+Nexa is a developing project, and its features may have different levels of maturity.
+
+For clarity, project documentation should distinguish among:
+
+Planned: The feature is part of the product direction but has not necessarily been implemented.
+
+In development: Work is actively taking place, but the feature may be incomplete.
+
+Implemented: Relevant code exists, although its correctness and completeness still need to be established.
+
+Tested: Specific behavior has been tested under documented conditions.
+
+Operational: The feature is deployed and functioning in its intended environment.
+
+Production-ready: The feature has met the relevant engineering, operational, security, and compliance requirements for its intended use.
+
+These categories are not interchangeable.
+
+A feature should be described according to the evidence available at the time of publication.
+
+The same principle applies to integrations, user numbers, commercial partnerships, security claims, and deployment status.
+
+24. Three-Month and Six-Month Reviews
+
+This documentation is intended to provide a point of reference for future development.
+
+A review approximately three months after October 13, 2026, can examine changes made by approximately January 13, 2027.
+
+A review approximately six months after that date of publication can examine progress by approximately April 13, 2027.
+
+These are review points, not promises that specific features will be completed by those dates.
 
 Useful evidence includes:
 
-- New source code and documented changes.
+- Changes in source code and version history.
+- New endpoints and database operations.
+- Improvements to transaction handling.
 - Features that have moved from planning to implementation.
-- Tests added and the results they produce.
-- Bugs discovered and corrected.
-- Database and API changes.
-- Features that remain incomplete and the reasons they remain incomplete.
+- Tests and their results.
+- External integrations that have become operational.
+- Known limitations and unresolved technical problems.
+- Decisions to redesign or abandon earlier ideas.
 
-The purpose is to record actual progress, including setbacks, rather than guarantee a particular outcome in advance.
+The purpose is to compare the project's actual evolution with its documented direction.
 
-Six-month review
+Progress should include both achievements and lessons learned.
 
-A further review approximately six months after publication should evaluate the project's development over the longer period.
+25. Why Build Something This Ambitious?
 
-It should examine the source history, implementation status, test coverage, architectural changes, and any available deployment or integration evidence.
+Nexa is a substantial undertaking because its intended components interact with one another.
 
-It should also document features that were postponed, abandoned, or redesigned.
+A marketplace needs order management. Order management interacts with payments. Payment workflows depend on consistent transaction records. Escrow introduces conditional release rules. P2P introduces interactions between participants. External providers introduce additional failure modes and dependencies.
 
-Neither review should assume that the project has succeeded merely because time has passed.
+These systems cannot be treated as entirely independent features.
 
-Progress should be demonstrated through changes that can be inspected and explained.
+Building them together requires careful design, testing, and a willingness to revise assumptions when the implementation exposes problems.
 
-10. Evidence and Verification
+Ibrahim's motivation is to use programming to develop useful services and eventually contribute to a much larger digital commerce ecosystem in Sudan.
 
-This README is a project description, not an independent technical audit.
+The ambition is not evidence that the project has already reached that destination.
 
-Different claims require different kinds of evidence.
+It explains why he is willing to undertake the work required to explore it.
 
-Claim| Useful evidence
-An API endpoint exists| Source code and route definitions
-An endpoint behaves correctly| Tests and reproducible results
-Authentication is implemented| Authentication code and tests of relevant cases
-A database schema exists| Schema definitions and migrations
-Transactions handle concurrent requests| Implementation details and concurrency tests
-A blockchain integration works| Integration code and verifiable test results
-A payment provider is integrated| Provider configuration, integration code, and successful authorized test transactions
-A feature is deployed| Deployment information and evidence that the feature is operational
-Code was developed over time| Version-control history and dated project records
-Third-party software is used| Dependency declarations, licenses, and source references
+The project will be judged by what it becomes, how well it works, and whether its claims remain consistent with the available evidence.
 
-No single item of evidence necessarily proves every aspect of a claim.
+26. Final Statement
 
-For example, a successful demonstration may establish that one workflow worked under the demonstrated conditions. It does not establish that the system is secure against every attack or reliable under every possible failure.
+Nexa is an ongoing attempt to build an integrated digital finance and e-commerce platform with a long-term focus on Sudan.
 
-Likewise, a Git commit history can help document development activity, but it is not conclusive proof of who originally authored every line.
+It brings together several challenging areas of software engineering: backend development, databases, account and transaction management, marketplace workflows, P2P interactions, and potential external financial integrations.
 
-The goal is to make technical claims proportionate to the evidence available.
+The developer's ambition is large, but the documentation does not treat future plans as completed achievements.
 
-11. Current Limitations
+His stated development approach is to write the code himself and use AI as a reasoning tool for exploring hypothetical scenarios and understanding possible system behavior.
 
-Nexa should not be described as a fully operational financial platform simply because its long-term design includes financial services.
+The project should be evaluated through its implementation, tests, dependencies, and documented progress.
 
-Unless independently established by the current implementation, the following should not be assumed:
+The goal is not to claim that every problem has already been solved.
 
-- That all planned features are implemented.
-- That all endpoints have been tested.
-- That all financial operations are safe under concurrent requests.
-- That all security requirements have been satisfied.
-- That real deposits, withdrawals, or blockchain transfers are operational.
-- That payment-provider integrations have been approved or deployed.
-- That escrow guarantees successful dispute resolution.
-- That the platform is ready to handle real customer funds.
-
-These are engineering requirements to verify, not accomplishments to infer from a feature list.
-
-If the project later satisfies particular requirements, the documentation should be updated to describe what was implemented and what evidence supports the change.
-
-12. Development Philosophy
-
-The aim is to build Nexa by learning, implementing, testing, documenting, and improving.
-
-The project is not presented as proof that an 18-year-old has already solved every difficult problem in financial software engineering.
-
-Instead, it documents an ongoing attempt to develop those skills through a substantial project.
-
-I expect to make mistakes. I expect to encounter problems that require redesign. I also expect that some parts of the project will take longer than originally planned.
-
-What matters is whether those problems are addressed honestly and whether the software improves through verifiable work.
-
-I would rather document an incomplete feature accurately than describe it as finished when it is not.
-
-I would rather acknowledge uncertainty than make a security claim that I cannot substantiate.
-
-And I would rather have the implementation examined critically than ask people to accept the project based on a personal story.
-
-13. Closing Statement
-
-Nexa is a work in progress built as part of a longer journey in software development.
-
-Its ambitions are substantial, but ambition is not evidence of completion. Its technical stack provides tools for building software, but the tools themselves do not guarantee quality. Its developer's personal circumstances explain part of the journey, but they do not replace technical verification.
-
-The most useful way to evaluate Nexa is to examine the code, understand the architecture, review the dependencies, run the available tests, and compare the documented status with the actual implementation.
-
-As development continues, this README should evolve alongside the project.
-
-The goal is not to claim more than has been achieved. The goal is to build something real, document it honestly, and make its progress verifiable.
+The goal is to build useful software, learn from the process, document the work honestly, and demonstrate progress over time.
