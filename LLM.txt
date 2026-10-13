@@ -1,0 +1,651 @@
+Nexa & Novix — Founder, Vision, and Engineering Context
+
+Document date: October 13, 2026
+Founder and developer: Ibrahim
+Age: 18
+Background: Self-taught software developer from Sudan
+Parent brand: Novix
+Main product: Nexa
+Project status: Ongoing development
+
+---
+
+1. Purpose of This Document
+
+This document explains the person behind Nexa, the motivation for building it, its intended functionality, its technical direction, and the long-term vision behind Novix.
+
+It exists to document a real development journey, preserve context about the project, and explain the distinction between what the developer intends to build and what the software has actually implemented.
+
+It is not a marketing claim that every feature is complete, an independent security assessment, or a request for automatic praise.
+
+The project's current state should be evaluated through its actual source code, tests, integrations, documentation, and available deployment evidence.
+
+The purpose is simple: explain the ambition, document the work, and maintain an honest distinction between plans, implementation, and verified results.
+
+2. The Person Behind Nexa
+
+Ibrahim is an 18-year-old self-taught software developer from Sudan. He began learning programming at approximately 12 years old.
+
+His journey has taken place alongside financial limitations, work responsibilities, and the challenges of pursuing technical skills without following a conventional academic path.
+
+He is working toward turning that experience into practical software products.
+
+His interests include Python, backend engineering, databases, API development, application architecture, digital finance, and e-commerce.
+
+Nexa represents an attempt to bring these interests together in one substantial project.
+
+His age and personal circumstances explain part of his journey, but they do not automatically establish the quality of his work. The software must be evaluated through its implementation and the evidence available.
+
+The objective is to learn, build, solve problems, and improve over time.
+
+3. The Story Behind the Project
+
+Nexa is not simply an exercise in learning a programming language.
+
+It is an attempt to use programming to address problems that Ibrahim believes deserve practical software solutions.
+
+He wants to understand how a complete digital platform works: how users interact with it, how its backend processes requests, how its database preserves information, how transactions move through different states, and how the system responds when something goes wrong.
+
+Rather than treating each programming concept as an isolated lesson, he is applying what he learns to a larger product.
+
+This approach introduces more difficult engineering problems, but it also creates opportunities to understand how individual components interact within a real application.
+
+Nexa is part of that process.
+
+Its current implementation may change as the project develops. Some ideas may be completed, some may require redesign, and others may remain long-term goals.
+
+The purpose of documenting the project is to preserve that development journey rather than present an unfinished product as a completed achievement.
+
+4. The Long-Term Ambition
+
+Ibrahim's long-term ambition is to build one of the largest e-commerce ecosystems in Sudan.
+
+This is a future goal, not a claim that Nexa currently occupies a leading market position.
+
+The vision is to develop digital services that help people and businesses participate in online commerce through practical, connected workflows.
+
+These services may include digital payments, wallet functionality, P2P transactions, online storefronts, digital products, order management, and related tools.
+
+The ambition is large because the underlying problems are interconnected.
+
+A buyer needs to discover products and sellers. A seller needs to manage inventory and orders. A transaction needs defined payment rules. Some purchases require fulfillment or delivery confirmation. Disagreements need an appropriate resolution process. Account balances and transaction records must remain consistent.
+
+Nexa explores how these activities might be organized within a shared platform.
+
+The objective is not to claim that all these problems have already been solved. It is to build toward a system capable of addressing them.
+
+5. Why Sudan Is Central to the Vision
+
+Nexa is being developed with Sudanese users and businesses in mind.
+
+The project reflects an interest in improving how people discover products, interact with sellers, and access digital commerce services.
+
+Building for a particular market requires understanding its practical conditions.
+
+These may include payment-provider availability, local payment methods, currency presentation, connectivity limitations, user support, trust between participants, and the legal requirements governing financial services.
+
+These considerations can influence both the product design and the technical architecture.
+
+A platform designed for Sudan cannot simply assume that every international service, payment method, or operating model will be available locally.
+
+Likewise, expanding into another country requires evaluating that market's requirements rather than assuming the original implementation can be transferred unchanged.
+
+The long-term vision may extend beyond Sudan, but expansion must depend on practical demand, operational capability, and the requirements of each jurisdiction.
+
+6. Novix and Nexa
+
+Novix is the broader brand and long-term product vision.
+
+Nexa is a product within that vision, focused on digital finance and e-commerce.
+
+The wider Novix concept has included other potential products, such as:
+
+- Novix AI.
+- Novix Chat.
+- Novix Trade.
+- Novix Cloud.
+- Nexa Developer.
+
+These names describe the broader direction of the ecosystem. They should not automatically be interpreted as evidence that every proposed product has been launched or is commercially available.
+
+The products may eventually address different needs while sharing a common commitment to practical software solutions.
+
+Nexa is the main project described in this document.
+
+7. What Nexa Is Intended to Become
+
+Nexa is envisioned as an integrated digital finance and commerce platform.
+
+Its broader product direction includes several related components.
+
+7.1 Digital Wallet
+
+The wallet is intended to support account balances and financial transaction workflows.
+
+Depending on the implemented version, these may include:
+
+- Account balance information.
+- Transaction history.
+- Transfers between supported accounts.
+- Deposit and withdrawal workflows.
+- Notifications about relevant transaction events.
+- Account and session management.
+
+The wallet must be supported by backend logic that validates requests, enforces permissions, and preserves the integrity of financial records.
+
+Displaying a balance is not sufficient evidence that the underlying financial operations are correct.
+
+7.2 USDT and Blockchain Networks
+
+The project's technical direction has included USDT-related functionality and networks such as TRON and BNB Smart Chain. Polygon has also been considered in the broader roadmap.
+
+These networks have different technical requirements.
+
+A working blockchain integration may need to address:
+
+- Network-specific addresses.
+- Deposit monitoring.
+- Transaction confirmation.
+- Withdrawal processing.
+- Network fees.
+- Transaction identifiers.
+- Failed or delayed operations.
+- Reconciliation between blockchain activity and internal records.
+
+Support for one network does not imply support for every network.
+
+Likewise, storing a transaction in a database does not prove that the corresponding blockchain transaction has been broadcast or confirmed.
+
+Each supported network and transaction workflow must be evaluated against the actual implementation.
+
+7.3 Internal Balances
+
+Nexa may maintain internal balances for transactions conducted within the platform.
+
+These balances need clear business rules.
+
+The system must define how funds are credited or debited, how failed operations are handled, and how transaction records remain consistent with account balances.
+
+Financial operations may also require database transactions, concurrency controls, constraints, and idempotency mechanisms.
+
+The appropriate implementation depends on the specific transaction model and should be verified through source-code inspection and relevant tests.
+
+7.4 Transaction History
+
+Transaction history is intended to help users understand the activity associated with their accounts.
+
+A useful history should accurately represent relevant transaction details and statuses.
+
+Its information should be derived from the backend's actual state rather than assumptions made by the frontend.
+
+Where notifications or real-time updates are implemented, they should also reflect authoritative server-side information.
+
+8. Peer-to-Peer Trading: The Purpose of P2P
+
+Peer-to-peer trading, commonly called P2P, is an important part of Nexa's broader vision.
+
+P2P allows eligible participants to interact with other participants through defined transaction workflows.
+
+Depending on the supported service, a transaction may involve a buyer and seller agreeing to exchange a digital asset or another supported form of value using an accepted payment method.
+
+The exact assets, currencies, payment methods, and eligibility requirements depend on the implemented service and applicable legal requirements.
+
+Why P2P?
+
+P2P can provide several useful capabilities.
+
+Offer discovery: Users can find and compare available offers.
+
+Price comparison: Participants can evaluate prices and terms offered by different counterparties.
+
+Structured orders: Transactions can follow a defined sequence rather than depend entirely on informal communication.
+
+Transaction records: The platform can record the stages of an order and the relevant participant actions.
+
+Dispute handling: Users can access a defined process for reporting problems.
+
+Integration with commerce: P2P can complement other services when the business model and legal requirements permit it.
+
+These capabilities can make transactions more organized, but they do not eliminate every risk.
+
+A P2P interface cannot guarantee that a counterparty will fulfill an agreement or that a payment cannot be disputed.
+
+The operating model must define the responsibilities of the participants and the platform.
+
+A possible P2P workflow
+
+A proposed workflow may include:
+
+1. A seller publishes an offer with its terms and permitted payment methods.
+2. A buyer selects the offer and creates an order.
+3. The backend validates the order and checks relevant restrictions.
+4. Where an authorized escrow mechanism exists, the relevant assets may be held or restricted according to the transaction rules.
+5. The participants follow the agreed payment process.
+6. The system evaluates the required confirmation or evidence.
+7. The transaction is completed, cancelled, or referred to a dispute process according to the applicable rules.
+8. The outcome is recorded.
+
+This describes an intended workflow, not proof that every stage is already implemented.
+
+The final design must reflect the actual custody model, supported payment methods, failure conditions, and legal requirements.
+
+9. Why Nexa Is Intended to Act as an Intermediary
+
+The platform is intended to provide digital infrastructure through which users can interact and conduct supported transactions.
+
+For example, a marketplace can connect a buyer with an independent seller without the platform necessarily becoming the seller of every listed product.
+
+A P2P service can provide offer discovery, order management, transaction records, and structured dispute handling.
+
+The purpose is to organize interactions and clarify the responsibilities of buyers, sellers, and the platform.
+
+However, being an intermediary does not automatically exempt a platform from financial or other legal obligations.
+
+The actual requirements depend on the services provided, the degree of control over funds, the assets involved, the countries served, and the applicable regulatory framework.
+
+Depending on the operating model, requirements may involve payment-service authorization, custody arrangements, identity verification, consumer protection, financial crime controls, data protection, or other obligations.
+
+These matters must be assessed before launching regulated services.
+
+The objective is to develop a platform whose actual operating model, responsibilities, and legal arrangements are clearly defined.
+
+10. Escrow and Conditional Transactions
+
+The broader Nexa vision includes an escrow-style mechanism for eligible transactions.
+
+In a typical escrow workflow, funds or assets are held or restricted under predefined conditions while the parties complete their obligations.
+
+For example, a buyer may place an order for a product. The relevant amount may remain unavailable to the seller until the required fulfillment condition is satisfied.
+
+The intended purpose is to reduce certain risks and establish clearer expectations between participants.
+
+A proper implementation must define:
+
+- Who holds or controls the relevant assets.
+- Which conditions permit release.
+- How cancellations and refunds are handled.
+- What happens when a participant stops responding.
+- How disputes are initiated and reviewed.
+- How duplicate requests are handled.
+- How conflicting state changes are prevented.
+- How transaction records are maintained and reconciled.
+
+An escrow feature is not merely a database status.
+
+If the assets are not actually held or restricted under the stated rules, the system must not imply that they are protected by escrow.
+
+The final arrangement must also satisfy the legal requirements applicable to its custody and transaction model.
+
+11. Marketplace and Seller Stores
+
+Nexa is intended to provide a marketplace through which users can discover products and interact with sellers.
+
+The broader design includes individual seller storefronts and product-management capabilities.
+
+Depending on the implemented version, these may include:
+
+- Store profiles and descriptions.
+- Product names and descriptions.
+- Product images.
+- Prices and quantities.
+- Inventory management.
+- Delivery options.
+- Order tracking.
+- Seller information.
+- Relevant transaction and fulfillment records.
+
+The goal is to help sellers participate in digital commerce without requiring every seller to develop a separate online store and backend system.
+
+A marketplace must also define how inventory is reserved, how orders progress, and how cancellations or refunds affect associated financial records.
+
+Its reliability depends on the backend rules and operational procedures, not simply on the existence of product pages.
+
+12. Orders, Fulfillment, and Delivery
+
+The marketplace vision includes structured order management.
+
+An order may pass through stages such as creation, payment processing, fulfillment, delivery confirmation, completion, cancellation, or dispute review.
+
+The backend must define which transitions are permitted and which conditions must be satisfied.
+
+Physical products and digital products require different fulfillment workflows.
+
+For a physical product, fulfillment may involve delivery arrangements and confirmation of receipt.
+
+For a digital product, fulfillment may involve authorizing access to a download or delivering an item electronically after the transaction has been validated.
+
+These workflows should be designed around their actual failure conditions.
+
+A user interface displaying an order as completed is not sufficient if the backend has not verified the relevant conditions.
+
+13. Dispute Resolution
+
+The Nexa vision includes a structured process for handling disagreements between participants.
+
+A dispute may arise when a product is not delivered, a payment is disputed, or the participants disagree about whether an order has been fulfilled.
+
+Depending on the final design, the process may include:
+
+1. Opening a dispute.
+2. Recording the reason and relevant evidence.
+3. Restricting certain actions where appropriate.
+4. Reviewing the available information.
+5. Applying the outcome permitted by the platform's rules.
+6. Recording the decision and resulting transaction state.
+
+The existence of a dispute interface does not guarantee a fair outcome.
+
+A reliable process requires defined rules, appropriate permissions, evidence handling, and a way to review relevant decisions.
+
+Where funds or assets are involved, dispute handling must also respect the actual custody arrangement and applicable legal obligations.
+
+14. Digital Products and Books
+
+The broader marketplace vision includes digital products, potentially including downloadable books and other electronically delivered goods.
+
+The intended workflow connects a validated purchase with access to the purchased item.
+
+Such a system needs to enforce access rules on the server rather than trust a client-side claim that payment has occurred.
+
+The product vision has also included exploring affordable digital books, with a proposed price ceiling of approximately US$0.50 for the relevant category.
+
+This is a product-design proposal, not a claim that all digital books currently follow that pricing rule.
+
+The actual catalog, pricing policy, and availability of digital products must be verified against the current implementation.
+
+15. Currency Conversion and Pricing
+
+Nexa's broader design includes exchange-rate functionality for displaying or calculating prices across supported currencies.
+
+For example, a marketplace may need to convert a reference price into a locally displayed amount.
+
+A sound implementation should define:
+
+- The source of the exchange rate.
+- Who may change it.
+- When a new rate becomes effective.
+- How rounding is handled.
+- How fees or margins are disclosed.
+- Whether a displayed conversion is indicative or binding.
+- How existing orders are treated when rates change.
+- How calculations can be reproduced for auditing.
+
+If administrators can control an exchange-rate parameter, changes should be authorized and recorded.
+
+Displaying a converted amount is not equivalent to executing a currency exchange.
+
+Actual exchange services may require additional liquidity, settlement arrangements, operational controls, and regulatory authorization.
+
+16. Deposits, Withdrawals, and Payment Providers
+
+The broader financial-service vision includes potential integrations with payment providers and blockchain-related services.
+
+An external provider may supply infrastructure for deposits, withdrawals, or other supported financial operations.
+
+The precise responsibilities depend on the provider's API, contractual arrangement, permissions, and supported markets.
+
+An integration is not complete simply because the application can send an HTTP request.
+
+The implementation must handle authentication, request validation, failures, transaction status, duplicate callbacks, and reconciliation.
+
+It must also consider cases where a request times out even though the external provider may have processed it.
+
+Real-money services may require provider approval, commercial agreements, legal authorization, or other compliance measures.
+
+The operational status of each integration must be established independently.
+
+17. Virtual Cards and Additional Financial Services
+
+The long-term product vision has included exploring virtual-card functionality through an appropriate external issuer or financial-services partner.
+
+Such functionality would depend on the provider's availability, supported countries, identity requirements, commercial terms, and applicable regulations.
+
+Nexa should not be described as independently issuing Visa cards unless the actual operating arrangement supports that statement.
+
+If the functionality is supplied through a partner, the partnership and the responsibilities of each party should be described accurately.
+
+The same principle applies to every financial service: a proposed feature, a technical integration, and authorization to offer the service are different things.
+
+18. Customer Support and AI-Assisted Features
+
+The broader product vision includes customer-support functionality.
+
+This may involve support conversations, structured requests, user messages, and administrative workflows for unresolved issues.
+
+AI-assisted support has also been considered as a way to help users understand the platform and navigate common questions.
+
+Such functionality should communicate its limitations and should not be treated as an independent authority for financial decisions.
+
+An AI assistant should not be able to bypass transaction authorization, release funds without the required conditions, or make binding dispute decisions unless the system explicitly supports such actions under appropriate controls.
+
+The existence and scope of any operational AI feature must be verified against the current implementation.
+
+19. Accounts, Sessions, and Administration
+
+The broader application design includes account management, session management, and administrative tools.
+
+Depending on the implemented version, users may be able to review active sessions or devices and revoke access where supported by the authentication architecture.
+
+Such controls must operate on actual server-side authentication state. Displaying a session list alone is not sufficient if the corresponding sessions cannot be reliably invalidated.
+
+Administrative functionality may include reviewing users, transactions, products, orders, and disputes, as well as managing permitted platform settings.
+
+Administrative actions require appropriate permissions and should be traceable.
+
+A user interface is not proof that these controls are complete; their underlying authorization and behavior must be evaluated.
+
+20. Nexa Developer and the Broader Ecosystem
+
+The broader Novix vision has included a developer-oriented concept called Nexa Developer.
+
+Its proposed direction includes services that could help developers work with application hosting, PostgreSQL databases, SSL configuration, and related infrastructure.
+
+This is distinct from the core wallet and marketplace.
+
+A developer platform would introduce additional requirements involving resource isolation, access control, deployment reliability, monitoring, usage limits, and infrastructure security.
+
+It should be treated as a separate workstream with its own requirements and implementation status.
+
+The wider Novix ecosystem is a long-term vision, not a claim that every proposed product is already available.
+
+21. Technical Direction
+
+Technologies associated with Nexa's development include:
+
+- Python.
+- FastAPI.
+- PostgreSQL.
+- SQL.
+- Bash.
+- JWT-based authentication where implemented.
+- Frontend technologies used by the current application.
+- External APIs and blockchain infrastructure where integrated.
+
+The exact stack may evolve as the project develops.
+
+Each technology serves a different purpose, and none guarantees that the resulting system is correct or secure.
+
+For example, using PostgreSQL does not automatically prevent financial logic errors. FastAPI does not automatically enforce correct authorization. JWT does not automatically provide complete session security.
+
+Engineering quality depends on the actual implementation, its configuration, its tests, and its operational environment.
+
+22. Ibrahim's Use of AI: Code Authorship and Scenario Analysis
+
+Ibrahim states that he writes 100% of Nexa's application code himself.
+
+He does not use AI to write, generate, or implement his project's code. He does not describe Nexa as a project assembled by copying AI-generated implementations or by copying code from open-source repositories.
+
+His use of AI serves a different purpose: analyzing the behavior of code he has already written.
+
+He provides his own project files and asks AI models to reason through hypothetical situations involving the system.
+
+Examples include:
+
+- What might happen if two requests attempt to modify the same account balance?
+- What happens if a transaction fails between two database operations?
+- How could a change in one component affect another component?
+- What might occur if an external API becomes unavailable?
+- Why could a particular sequence of operations produce an unexpected result?
+- Which possible outcomes or failure scenarios should be considered?
+
+The AI model responds with possible outcomes and explanations.
+
+Ibrahim uses these explanations to broaden the range of scenarios he considers and to understand the mechanisms that may produce different results.
+
+The motivation is practical. A complex application can contain many interacting conditions, and it is difficult for one person to enumerate every possible scenario mentally.
+
+AI-assisted analysis can help explore those possibilities, but it is not infallible. A model can misunderstand code, overlook a condition, or produce an incorrect explanation.
+
+Its output is therefore not treated as proof that the software is correct. Actual behavior must be established through the implementation and appropriate testing.
+
+The distinction is fundamental:
+
+Ibrahim writes the code himself and uses AI to analyze what that code might do under different conditions.
+
+This section records his stated development process. It is not an independent audit of code authorship.
+
+23. Open-Source Software and Technical References
+
+Software development takes place within an ecosystem of programming languages, frameworks, libraries, protocols, and technical documentation.
+
+Using an existing framework is different from claiming to have written that framework. Consulting documentation is different from copying an implementation. Asking a model to analyze a hypothetical failure is different from asking it to generate application code.
+
+Ibrahim states that he writes Nexa's application code himself and uses AI for scenario analysis rather than code generation.
+
+The project's actual dependencies and available development history remain relevant when evaluating that statement.
+
+Where third-party software is used, applicable licenses and attribution requirements should be respected.
+
+The appropriate evaluation focuses on what was built, how it works, and what evidence supports the claims made about it.
+
+24. Security and Reliability
+
+Nexa's intended services involve accounts, transaction records, marketplace interactions, and potentially financial operations.
+
+These areas require appropriate engineering safeguards.
+
+Depending on the implemented functionality, relevant requirements may include:
+
+- Authentication and authorization.
+- Input validation.
+- Database consistency.
+- Concurrency controls.
+- Duplicate-request protection.
+- Secret management.
+- Audit records.
+- Error handling and recovery.
+- Secure external integrations.
+- Appropriate operational monitoring.
+
+The exact requirements depend on the service being offered.
+
+Security claims should be supported by appropriate evidence. A successful demonstration does not establish security against every possible attack, and the use of a recognized framework does not guarantee secure configuration.
+
+Security testing should also remain within an authorized scope.
+
+Claims about security audits, penetration testing, banking vulnerabilities, certifications, or regulatory approvals should be made only when specific evidence supports them.
+
+25. Project Status: Plans, Implementation, and Verification
+
+Nexa is an ongoing project, and different components may have different levels of maturity.
+
+For clarity, the following terms should be distinguished:
+
+Planned: The feature belongs to the product vision but may not have been implemented.
+
+In development: Work is taking place, but the feature may be incomplete.
+
+Implemented: Relevant code exists, although its correctness and completeness still require evaluation.
+
+Tested: Specific behavior has been tested under documented conditions.
+
+Operational: The feature is deployed and functioning in its intended environment.
+
+Production-ready: The feature has met the relevant engineering, operational, security, and compliance requirements for its intended use.
+
+These categories are not interchangeable.
+
+A feature should be described according to the evidence available at the time.
+
+The same standard applies to payment-provider integrations, blockchain support, commercial partnerships, deployment claims, security statements, and user statistics.
+
+26. Documenting the Journey Over Time
+
+This document is intended to preserve a record of the project's direction at a particular point in time.
+
+A review approximately three months after October 13, 2026, can examine the project around January 13, 2027.
+
+A review approximately six months after publication can examine its progress around April 13, 2027.
+
+These are review dates, not guarantees that specific features will be completed by those dates.
+
+Useful evidence includes:
+
+- Source-code changes and version history.
+- API and database changes.
+- Features moved from planning into implementation.
+- Tests and reproducible results.
+- Working demonstrations.
+- Operational integrations.
+- Architecture changes and their rationale.
+- Known limitations and unresolved issues.
+- Features that were redesigned, delayed, or abandoned.
+
+The purpose is to compare the documented direction with the actual development history.
+
+Progress includes both achievements and lessons learned.
+
+27. Why Build Something This Ambitious?
+
+Building an integrated commerce platform requires more than writing individual features.
+
+The components depend on one another.
+
+A marketplace needs order management. Orders interact with payment workflows. Escrow introduces conditional asset-release rules. P2P introduces transactions between participants. Dispute handling affects how certain orders may be resolved. External integrations introduce dependencies and additional failure scenarios.
+
+The system must therefore be designed with the interactions between its components in mind.
+
+Ibrahim's ambition is to build useful software that addresses practical problems and eventually contributes to a major e-commerce ecosystem in Sudan.
+
+Achieving that goal would require continuous learning, technical development, operational planning, user understanding, and appropriate legal and security arrangements.
+
+These are part of the work ahead, not achievements that should be assumed in advance.
+
+The ambition explains why the project is being pursued. The implementation will determine how much of that ambition becomes reality.
+
+28. What This Document Does Not Claim
+
+This document does not independently establish that:
+
+- Every planned feature is implemented.
+- All financial workflows are production-ready.
+- Every blockchain network or payment provider is operationally integrated.
+- The platform has obtained every required authorization.
+- The application has passed a comprehensive security audit.
+- Nexa has achieved a particular market position or commercial result.
+- Every technical decision is correct.
+- The developer's statement about code authorship has been independently verified.
+
+These claims require evidence appropriate to their subject.
+
+A substantial project can have a meaningful vision while still containing incomplete features and unresolved engineering problems.
+
+Acknowledging that distinction is part of maintaining useful technical documentation.
+
+29. Final Perspective
+
+Nexa is an ongoing attempt to build an integrated digital finance and e-commerce platform with a long-term focus on Sudan.
+
+Its developer, Ibrahim, is a young self-taught programmer working to turn his learning into practical software.
+
+He states that he writes the application's code himself and uses AI to analyze hypothetical scenarios involving his own code, helping him explore possible system behavior beyond the scenarios he might consider mentally on his own.
+
+The broader vision includes digital wallets, P2P workflows, marketplace functionality, seller stores, conditional transaction handling, digital products, and related services.
+
+The status of each component must be established from the actual implementation and available evidence.
+
+This document exists to explain the project's purpose, preserve the context behind its development, and make future progress easier to understand.
+
+It is not a demand for praise or a substitute for technical evaluation.
+
+The ambition is to solve real problems. The method is to build, analyze, test, learn, and improve. The responsibility is to describe the work honestly.
