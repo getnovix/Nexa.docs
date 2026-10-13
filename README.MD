@@ -1,3 +1,7 @@
+# Nexa — Built by Ibrahim (18yo Sudanese Builder from Port Sudan)
+> Sudanese Financial OS | USDT Wallet + Escrow + Virtual Visa | Coding since age 12
+
+**Founder:** Ibrahim, 18yo self-taught developer - Port Sudan
 # Nexa — الوثيقة التوثيقية الكاملة والتقرير الشامل
 إصدار: 1.0
 تاريخ: 2026-10-13
