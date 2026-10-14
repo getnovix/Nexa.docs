@@ -587,3 +587,5 @@ The project should be evaluated through its implementation, tests, dependencies,
 The goal is not to claim that every problem has already been solved.
 
 The goal is to build useful software, learn from the process, document the work honestly, and demonstrate progress over time.
+Note: This repository contains a Marketplace file, which is part of my backend code. I uploaded it for simple verification. The full code will be shared after 3 months with my expert reviewers. Thank you. 
+
